@@ -2,8 +2,8 @@ stages:
 - name: compile
   steps:
   - runScriptConfig:
-      image: maven:3-jdk-8
-      shellScript: mvn clean install
+      image: maven:v3
+      shellScript: mvn clean package -Dmaven.test.skip=true
 - name: publish
   steps:
   - publishImageConfig:
