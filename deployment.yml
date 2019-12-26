@@ -1,0 +1,36 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: testdemo-service
+spec:
+  selector:
+    app: testdemo
+  type: NodePort
+  ports:
+    - protocol: TCP
+      port: 8089
+      targetPort: 8089
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-testdemo
+  labels:
+    app: testdemo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: testdemo
+  template:
+    metadata:
+      labels:
+        app: testdemo
+    spec:
+      imagePullSecrets:
+      - name: pipeline-docker-registry
+      containers:
+      - name: testdemo
+        image: ${CICD_IMAGE}:${CICD_EXECUTION_SEQUENCE}
+        ports:
+        - containerPort: 8089
