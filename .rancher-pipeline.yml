@@ -9,8 +9,7 @@ stages:
   - publishImageConfig:
       dockerfilePath: ./Dockerfile
       buildContext: .
-      tag: soben/test-demo:${CICD_EXECUTION_SEQUENCE}
-      pushRemote: true
+      tag: example-testdemo:${CICD_EXECUTION_SEQUENCE}
       registry: 127.0.0.1:34155
 - name: deploy
   steps:
