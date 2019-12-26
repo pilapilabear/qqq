@@ -3,7 +3,7 @@ stages:
   steps:
   - runScriptConfig:
       image: maven:v1
-      shellScript: mvn clean package
+      shellScript: mvn clean package -Dmaven.test.skip=true
 - name: publish
   steps:
   - publishImageConfig:
