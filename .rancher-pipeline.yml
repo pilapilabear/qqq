@@ -10,7 +10,6 @@ stages:
       dockerfilePath: ./Dockerfile
       buildContext: .
       tag: example-testdemo:${CICD_EXECUTION_SEQUENCE}
-      pushRemote: true
       registry: index.docker.io
 - name: deploy
   steps:
