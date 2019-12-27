@@ -1,8 +1,4 @@
-FROM anapsix/alpine-java:8_server-jre_unlimited
-MAINTAINER pipizhu99_2008@126.com
-RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-RUN mkdir -p /DemoApplication
-WORKDIR /DemoApplication
-EXPOSE 9999
-ADD ./demo-test/target/DemoApplication.jar ./
-CMD ["testdemo-server"]
+FROM java:8
+VOLUME /tmp
+ADD demo-0.0.1-SNAPSHOT.jar /example-testdemo.jar
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/example-testdemo.jar"]
