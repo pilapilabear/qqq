@@ -9,9 +9,9 @@ stages:
   - publishImageConfig:
       dockerfilePath: ./Dockerfile
       buildContext: .
-      tag: example-testdemo:${CICD_EXECUTION_SEQUENCE}
+      tag: defaultdemotest/example-testdemo:${CICD_EXECUTION_SEQUENCE}
       pushRemote: true
-      registry: registry.cn-beijing.aliyuncs.com/defaultdemotest/demotest
+      registry: registry.cn-beijing.aliyuncs.com
 - name: deploy
   steps:
   - applyYamlConfig:
