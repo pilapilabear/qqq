@@ -7,7 +7,7 @@ spec:
     app: demotest
   type: NodePort
   ports:
-    - port: 80
+    - port: 8080
       name: http
 ---
 apiVersion: apps/v1
@@ -32,5 +32,5 @@ spec:
       - name: demotest
         image: ${CICD_IMAGE}:${CICD_EXECUTION_SEQUENCE}
         ports:
-        - containerPort: 80
+        - containerPort: 8080
           name: http
