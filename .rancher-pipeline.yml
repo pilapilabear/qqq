@@ -2,7 +2,7 @@ stages:
 - name: compile
   steps:
   - runScriptConfig:
-      image: maven:v3
+      image: maven:v1
       shellScript: mvn clean package -Dmaven.test.skip=true
 - name: publish
   steps:
