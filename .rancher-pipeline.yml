@@ -11,7 +11,7 @@ stages:
       buildContext: .
       tag: example-testdemo:${CICD_EXECUTION_SEQUENCE}
       pushRemote: true
-      registry: 127.0.0.1:34155
+      registry: index.docker.io
 - name: deploy
   steps:
   - applyYamlConfig:
