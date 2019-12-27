@@ -2,14 +2,15 @@ stages:
 - name: compile
   steps:
   - runScriptConfig:
-      image: maven:v1
-      shellScript: mvn clean package
+      image: maven:3.6.3
+      shellScript: mvn clean package -Dmaven.test.skip=true
 - name: publish
   steps:
   - publishImageConfig:
       dockerfilePath: ./Dockerfile
       buildContext: .
       tag: example-testdemo:${CICD_EXECUTION_SEQUENCE}
+      pushRemote: true
       registry: 127.0.0.1:34155
 - name: deploy
   steps:
