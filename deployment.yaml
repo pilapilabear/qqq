@@ -4,7 +4,7 @@ metadata:
   name: testdemo-service
 spec:
   selector:
-    app: testdemo
+    app: demotest
   type: NodePort
   ports:
     - protocol: TCP
@@ -14,23 +14,23 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: example-testdemo
+  name: demotest
   labels:
-    app: testdemo
+    app: demotest
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: testdemo
+      app: demotest
   template:
     metadata:
       labels:
-        app: testdemo
+        app: demotest
     spec:
       imagePullSecrets:
       - name: pipeline-docker-registry
       containers:
-      - name: testdemo
+      - name: demotest
         image: ${CICD_IMAGE}:${CICD_EXECUTION_SEQUENCE}
         ports:
         - containerPort: 8089
