@@ -8,7 +8,7 @@ spec:
     app: demotest
   type: NodePort
   ports:
-    - port: 8080
+    - port: 80
       name: http
 ---
 apiVersion: apps/v1
@@ -19,7 +19,7 @@ metadata:
   labels:
     app: demotest
 spec:
-  replicas: 1
+  #replicas: 1
   selector:
     matchLabels:
       app: demotest
@@ -34,5 +34,5 @@ spec:
       - name: demotest
         image: ${CICD_IMAGE}:${CICD_EXECUTION_SEQUENCE}
         ports:
-        - containerPort: 8080
+        - containerPort: 80
           name: http
