@@ -10,7 +10,7 @@ public class Hellocontroller {
     @RequestMapping("/hi")
     public  String Hi()
     {
-        return "你好啊";
+        return "你好啊！";
     }
 
 }
