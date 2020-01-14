@@ -1,0 +1,4 @@
+ssh-copy-id -i  /home/rancher/.ssh/id_rsa.pub  rancher@192.168.1.131
+    env:
+      PLUGIN_DEBUG: "true"
+      PLUGIN_INSECURE: "true"
