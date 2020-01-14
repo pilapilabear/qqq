@@ -2,3 +2,13 @@ ssh-copy-id -i  /home/rancher/.ssh/id_rsa.pub  rancher@192.168.1.131
     env:
       PLUGIN_DEBUG: "true"
       PLUGIN_INSECURE: "true"
+
+执行 docker-compose down -v 停止
+方外散人  16:35:09
+然后呢？
+小宝  16:35:14
+执行docker-compose up -d 启动
+方外散人  16:35:22
+/发呆就可以了吗？
+小宝  16:35:33
+执行docker-compose ps 查看进程
